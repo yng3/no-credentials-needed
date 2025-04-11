@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- inside portal.html -->
+<script>
+  function enterPortal() {
+    window.location.href = "index.html";
+  }
+</script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome Portal</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: black;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+    }
+
+    .portal-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .portal-background {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: radial-gradient(circle, rgba(255,0,150,0.2), transparent 70%),
+                  radial-gradient(circle, rgba(0,150,255,0.15), transparent 60%),
+                  radial-gradient(circle, rgba(255,50,0,0.1), transparent 70%);
+      animation: drift 60s linear infinite;
+      z-index: 0;
+      filter: blur(50px);
+    }
+
+    @keyframes drift {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.05); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .message {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      z-index: 2;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    .enter-button {
+      font-size: 1em;
+      padding: 12px 32px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 2;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s ease;
+    }
+
+    .enter-button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="portal-background"></div>
+  <div class="portal-container">
+    <div class="message">You’ve been here before. Welcome back.</div>
+    <button class="enter-button" onclick="enterPortal()">ENTER</button>
+  </div>
+
+  <script>
+    function enterPortal() {
+      // Placeholder for future interaction
+      alert("Portal entered. Continue building your experience here.");
+    }
+  </script>
+</body>
+</html>
